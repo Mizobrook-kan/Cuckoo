@@ -20,7 +20,7 @@ define("THEME_NAME", "Cuckoo");
 define("THEME_VERSION", "2.0.1");
 
 require_once("includes/setting.php");
-require_once("includes/owo.php");
+// require_once("includes/owo.php");
 
 // 文章自定义设置
 function themeFields($layout) {
@@ -119,28 +119,28 @@ function parseContent($content) {
 
 /* 表情包解析  感谢ohmyga */
 function parseBiaoQing($content) {
-  $owoList = (Smile::getOwOList()) ? Smile::getOwOList() : NULL;
-  //如果没有表情包则不解析
-  if (!$owoList) {
-    return $content;
-  }
-  for ($owoNum = 0; $owoNum < count($owoList); $owoNum++) {
-    //如果是 Text 或者 emoji //没必要返回
-    if ($owoList[$owoNum]['type'] == 'text' || $owoList[$owoNum]['type'] == 'emoji') {
-      $content = $content;
-    }
-    //如果是图片
-    if ($owoList[$owoNum]['type'] == 'picture') {
-      //判断有无图片
-      if ($owoList[$owoNum]['content']) {
-        for ($i = 0; $i < count($owoList[$owoNum]['content']); $i++) {
-          $new = '<img src="' . $owoList[$owoNum]['dir'] . $owoList[$owoNum]['content'][$i]['file'] . '" class="emoji-img-'.$owoList[$owoNum]['css'].'" />';
-          $content = str_replace($owoList[$owoNum]['content'][$i]['data'], $new, $content);
-        }
-      }
-    }
-  }
-  return $content;
+  // $owoList = (Smile::getOwOList()) ? Smile::getOwOList() : NULL;
+  // //如果没有表情包则不解析
+  // if (!$owoList) {
+  //   return $content;
+  // }
+  // for ($owoNum = 0; $owoNum < count($owoList); $owoNum++) {
+  //   //如果是 Text 或者 emoji //没必要返回
+  //   if ($owoList[$owoNum]['type'] == 'text' || $owoList[$owoNum]['type'] == 'emoji') {
+  //     $content = $content;
+  //   }
+  //   //如果是图片
+  //   if ($owoList[$owoNum]['type'] == 'picture') {
+  //     //判断有无图片
+  //     if ($owoList[$owoNum]['content']) {
+  //       for ($i = 0; $i < count($owoList[$owoNum]['content']); $i++) {
+  //         $new = '<img src="' . $owoList[$owoNum]['dir'] . $owoList[$owoNum]['content'][$i]['file'] . '" class="emoji-img-'.$owoList[$owoNum]['css'].'" />';
+  //         $content = str_replace($owoList[$owoNum]['content'][$i]['data'], $new, $content);
+  //       }
+  //     }
+  //   }
+  // }
+  // return $content;
 }
 
 // 判断是否为好丽友
