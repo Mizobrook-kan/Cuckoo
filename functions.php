@@ -174,22 +174,22 @@ function staticFiles($content, $type = 0) {
 
 // 随机文章封面
 function randPic(){
-  $setting = Helper::options()->randimg;
-  $setting_cdn = Helper::options()->randimgCdn;
-  $rand = mt_rand(0,999);
-  if ($setting == 'api.ohmyga.cn') {
-    $output = 'https://api.ohmyga.cn/wallpaper/?rand='.$rand;
-  }elseif ($setting == 'local') {
-    $openfile = glob(Helper::options()->themeFile("Cuckoo", "random/*"), GLOB_BRACE);
-    $img = array_rand($openfile);
-    preg_match('/\/random\/\S*\.(jpg|png|gif)/', $openfile[$img], $out);
-    $output = Helper::options()->siteUrl.'usr/themes/Cuckoo'.$out[0];
-  }elseif ($setting == 'cdn'){
-    $output = preg_replace('{rand}', $rand, $setting_cdn);
-  }elseif ($setting == '9jojo'){
-    $output = 'https://api.baka.fun/acgpic/?rand='.$rand;
-  }
-  print_r($output);
+  // $setting = Helper::options()->randimg;
+  // $setting_cdn = Helper::options()->randimgCdn;
+  // $rand = mt_rand(0,999);
+  // if ($setting == 'api.ohmyga.cn') {
+  //   $output = 'https://api.ohmyga.cn/wallpaper/?rand='.$rand;
+  // }elseif ($setting == 'local') {
+  //   $openfile = glob(Helper::options()->themeFile("Cuckoo", "random/*"), GLOB_BRACE);
+  //   $img = array_rand($openfile);
+  //   preg_match('/\/random\/\S*\.(jpg|png|gif)/', $openfile[$img], $out);
+  //   $output = Helper::options()->siteUrl.'usr/themes/Cuckoo'.$out[0];
+  // }elseif ($setting == 'cdn'){
+  //   $output = preg_replace('{rand}', $rand, $setting_cdn);
+  // }elseif ($setting == '9jojo'){
+  //   $output = 'https://api.baka.fun/acgpic/?rand='.$rand;
+  // }
+  // print_r($output);
 }
 
 // 阅读时间
